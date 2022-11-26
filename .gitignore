@@ -3,3 +3,7 @@ gradle/
 .idea/
 .gradle/
 *.gradle
+
+build.gradle
+gradle
+.gitignore
