@@ -1,18 +1,17 @@
 package hello.typeconverter.converter;
 
 import hello.typeconverter.type.IpPort;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
-public class ConverterTest {
+class ConverterTest {
 
     @Test
     void stringToInteger() {
-        StringToIntegerConverter converter = new StringToIntegerConverter();
-        Integer result = converter.convert("10");
-        assertThat(result).isEqualTo(10);
+        StringToIntegerConverter stringToIntegerConverter = new StringToIntegerConverter();
+        Integer convert = stringToIntegerConverter.convert("10");
+        assertThat(convert).isEqualTo(10);
     }
 
     @Test
@@ -24,12 +23,12 @@ public class ConverterTest {
 
     @Test
     void stringToIpPort() {
-        IpPortToStringConverter converter = new IpPortToStringConverter();
+        IpPortToStringConverter conv = new IpPortToStringConverter();
         IpPort source = new IpPort("127.0.0.1", 8080);
-        String result = converter.convert(source);
+        String result = conv.convert(source);
         assertThat(result).isEqualTo("127.0.0.1:8080");
     }
-    
+
     @Test
     void ipPortToString() {
         StringToIpPortConverter converter = new StringToIpPortConverter();
